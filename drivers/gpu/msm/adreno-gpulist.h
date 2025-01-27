@@ -1498,24 +1498,12 @@ static const struct adreno_a6xx_core adreno_gpu_core_a702 = {
 };
 
 static const struct adreno_gpu_core *adreno_gpulist[] = {
-	&adreno_gpu_core_a306.base,
-	&adreno_gpu_core_a306a.base,
-	&adreno_gpu_core_a304.base,
 	&adreno_gpu_core_a405,		/* Deprecated */
 	&adreno_gpu_core_a418,		/* Deprecated */
 	&adreno_gpu_core_a420,		/* Deprecated */
 	&adreno_gpu_core_a430,		/* Deprecated */
 	&adreno_gpu_core_a530v1,	/* Deprecated */
-	&adreno_gpu_core_a530v2.base,
-	&adreno_gpu_core_a530v3.base,
-	&adreno_gpu_core_a505.base,
-	&adreno_gpu_core_a506.base,
-	&adreno_gpu_core_a510.base,
 	&adreno_gpu_core_a540v1,	/* Deprecated */
-	&adreno_gpu_core_a540v2.base,
-	&adreno_gpu_core_a512.base,
-	&adreno_gpu_core_a508.base,
-	&adreno_gpu_core_a504.base,
 	&adreno_gpu_core_a630v1,	/* Deprecated */
 	&adreno_gpu_core_a630v2.base,
 	&adreno_gpu_core_a615.base,
