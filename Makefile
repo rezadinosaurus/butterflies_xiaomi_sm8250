@@ -728,6 +728,9 @@ KBUILD_AFLAGS   += -O2
 KBUILD_LDFLAGS  += -O2
 endif
 
+KBUILD_CFLAGS += -mcpu=cortex-a77+crc+crypto+lse+rdm+rcpc+dotprod+fp16 -mtune=cortex-a77
+KBUILD_AFLAGS += -mcpu=cortex-a77+crc+crypto+lse+rdm+rcpc+dotprod+fp16
+
 ifdef CONFIG_CC_WERROR
 KBUILD_CFLAGS  += -Werror
 endif
