@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
+#include "../inc/tfa98xx_tfafieldnames.h"
 #include "../inc/dbgprint.h"
 #include "../inc/tfa_container.h"
 #include "../inc/tfa.h"
-#include "../inc/tfa98xx_tfafieldnames.h"
 #include "../inc/tfa_internal.h"
 
 #ifdef __KERNEL__

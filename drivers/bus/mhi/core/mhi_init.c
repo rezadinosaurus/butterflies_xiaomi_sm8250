@@ -325,10 +325,12 @@ static const struct attribute_group mhi_sysfs_group = {
 
 void mhi_create_sysfs(struct mhi_controller *mhi_cntrl)
 {
-	sysfs_create_group(&mhi_cntrl->mhi_dev->dev.kobj, &mhi_sysfs_group);
+	if (sysfs_create_group(&mhi_cntrl->mhi_dev->dev.kobj, &mhi_sysfs_group))
+		dev_err(&mhi_cntrl->mhi_dev->dev, "Failed to create mhi sysfs group\n");
 	if (mhi_cntrl->mhi_tsync)
-		sysfs_create_group(&mhi_cntrl->mhi_dev->dev.kobj,
-				   &mhi_tsync_group);
+		if (sysfs_create_group(&mhi_cntrl->mhi_dev->dev.kobj,
+				   &mhi_tsync_group))
+			dev_err(&mhi_cntrl->mhi_dev->dev, "Failed to create mhi tsync sysfs group\n");
 }
 
 void mhi_destroy_sysfs(struct mhi_controller *mhi_cntrl)

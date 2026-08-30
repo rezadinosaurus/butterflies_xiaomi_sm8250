@@ -1542,7 +1542,7 @@ static int usbpd_pm_sm(struct usbpd_pm *pdpm)
 		     !pdpm->no_need_en_slave_bq) ||
 		    !pdpm->cp.charge_enabled) {
 			if (pdpm->cp.vbus_volt < 7200) {
-				pr_info("vbus_volt:%d is low, retry.\n");
+				pr_info("vbus_volt:%d is low, retry.\n", pdpm->cp.vbus_volt);
 				usbpd_pm_move_state(pdpm, PD_PM_STATE_ENTRY);
 			}
 		}

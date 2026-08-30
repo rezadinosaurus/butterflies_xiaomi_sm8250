@@ -316,11 +316,13 @@ static ssize_t gpio_set_store(struct device *dev, struct device_attribute *attr,
 
 	token = strsep(&str, delim);
 	if (token != NULL)
-		kstrtouint(token, 10, &gpio_pin);
+		if (kstrtouint(token, 10, &gpio_pin))
+			return count;
 
 	token = strsep(&str, delim);
 	if (token != NULL)
-		kstrtouint(token, 10, &gpio_value);
+		if (kstrtouint(token, 10, &gpio_value))
+			return count;
 
 	dbgprint(DEBUG_LEVEL, "gpio set %d %d\n", gpio_pin, gpio_value);
 

@@ -31,6 +31,10 @@
 #include <linux/debugfs.h>
 #include <linux/version.h>
 #include <linux/input.h>
+
+/* required for enum tfa9912_irq */
+#include "../inc/tfa98xx_tfafieldnames.h"
+
 #include "../inc/config.h"
 #include "../inc/tfa98xx.h"
 #include "../inc/tfa.h"
@@ -43,9 +47,6 @@
 	printk(KERN_INFO "[TFA9874] " pr_fmt(fmt), ##args)
 #define pr_info(fmt, args...) printk(KERN_INFO "[TFA9874] " pr_fmt(fmt), ##args)
 #define pr_err(fmt, args...) printk(KERN_ERR "[tfa9874] " pr_fmt(fmt), ##args)
-
-/* required for enum tfa9912_irq */
-#include "../inc/tfa98xx_tfafieldnames.h"
 
 #include "../inc/spk-id.h"
 

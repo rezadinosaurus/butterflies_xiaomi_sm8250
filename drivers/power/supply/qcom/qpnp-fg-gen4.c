@@ -1230,7 +1230,7 @@ static int fg_gen4_get_prop_soc_scale(struct fg_gen4_chip *chip)
 	if (chip->vbatt_avg > 3650) {
 		if (chip->dt.rapid_soc_dec_en) {
 			if(chip->rapid_soc_dec_en) {
-				fg_dbg(fg, FG_STATUS, "Vbatt > 3650, exit rapid soc decrease\n", fg->charge_status);
+				fg_dbg(fg, FG_STATUS, "Vbatt > 3650, exit rapid soc decrease\n");
 				rc = fg_gen4_rapid_soc_config(chip, false);
 				if (rc < 0)
 					pr_err("Error in configuring for rapid SOC reduction rc:%d\n",
@@ -1238,7 +1238,7 @@ static int fg_gen4_get_prop_soc_scale(struct fg_gen4_chip *chip)
 				chip->rapid_soc_dec_en = false;
 			}
 		} else if (chip->vbatt_low) {
-			fg_dbg(fg, FG_STATUS, "Vbatt > 3650, reset vbatt_low = false\n", fg->charge_status);
+			fg_dbg(fg, FG_STATUS, "Vbatt > 3650, reset vbatt_low = false\n");
 			chip->vbatt_low = false;
 		}
 	}

@@ -4622,7 +4622,7 @@ static int smblib_update_thermal_readings(struct smb_charger *chg)
 int smblib_set_vbus_disable(struct smb_charger *chg,
 					bool disable)
 {
-	int ret;
+	int ret = 0;
 
 	smblib_err(chg, "set vbus disable:%d\n", disable);
 	if (disable) {
@@ -5335,7 +5335,7 @@ int smblib_set_prop_dc_reset(struct smb_charger *chg)
 
 	rc = smblib_write(chg, DCIN_CMD_PON_REG, DCIN_PON_BIT | MID_CHG_BIT);
 	if (rc < 0) {
-		smblib_err(chg, "Couldn't write %d to DCIN_CMD_PON_REG rc=%d\n",
+		smblib_err(chg, "Couldn't write %ld to DCIN_CMD_PON_REG rc=%d\n",
 			DCIN_PON_BIT | MID_CHG_BIT, rc);
 		return rc;
 	}
@@ -8044,8 +8044,9 @@ static int check_reduce_fcc_condition(struct smb_charger *chg)
 
 	if (!chg->cp_psy) {
 		chg->cp_psy = power_supply_get_by_name("bq2597x-standalone");
-		if (!chg->cp_psy)
+		if (!chg->cp_psy) {
 			pr_err("cp_psy not found\n");
+			}
 			return 0;
 	}
 

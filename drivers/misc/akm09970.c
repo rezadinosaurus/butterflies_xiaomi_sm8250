@@ -852,7 +852,6 @@ static int akm09970_remove(struct i2c_client *client)
 	cancel_work_sync(&c_ctrl->report_work);
 	destroy_workqueue(c_ctrl->work_queue);
 
-	if (&(c_ctrl->cdev))
 		cdev_del(&(c_ctrl->cdev));
 
 	if (c_ctrl->chr_dev)

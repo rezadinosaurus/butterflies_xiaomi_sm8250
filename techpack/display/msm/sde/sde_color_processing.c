@@ -2015,7 +2015,7 @@ int sde_cp_crtc_set_property(struct drm_crtc *crtc,
 		&& pcc_info.crtc_id == crtc->base.id) {
 		if ((val & MI_DIMLAYER_FOD_HBM_OVERLAY) != (pcc_info.fod_val & MI_DIMLAYER_FOD_HBM_OVERLAY)) {
 			fod_changed = true;
-			DRM_INFO("mi_fod_sync_info changed, prop_id = %d, hbm_overlay = %d\n",
+			DRM_INFO("mi_fod_sync_info changed, prop_id = %u, hbm_overlay = %llu\n",
 					property->base.id, val & MI_DIMLAYER_FOD_HBM_OVERLAY);
 		}
 		pcc_info.fod_val = val;

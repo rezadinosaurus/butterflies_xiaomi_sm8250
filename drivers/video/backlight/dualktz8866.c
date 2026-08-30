@@ -155,7 +155,7 @@ static int ktz8866_case2_test(int pwm, char *result)
 	diff_a = (u64)ktime_us_delta(time_b, time_a);
 	diff_b = (u64)ktime_us_delta(time_c, time_b);
 
-	sprintf(result, "case2_%d_%d", diff_a, diff_b);
+	sprintf(result, "case2_%llu_%llu", diff_a, diff_b);
 
 	printk("bl_selftest:  ktz8866_case2_test result: %s\n", result);
 	return 0;
@@ -195,7 +195,7 @@ static ssize_t bl_selftest_write(struct file *file, const char __user *buf,
 	else if (!strncmp(tmp, "case2", 5))
 		caseid = 1;
 	else {
-		kstrtoint(tmp, 10, &pwm_value);
+		if (kstrtoint(tmp, 10, &pwm_value)) { }
 		switch (caseid) {
 		case 0:
 			ktz8866_case1_test(pwm_value, gresult);

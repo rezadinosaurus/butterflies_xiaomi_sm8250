@@ -4355,7 +4355,7 @@ static int aw8697_parse_dt_common(struct device *dev, struct aw8697 *aw8697,
 			printk("%s Read qcom,wf-pattern property failed !\n",
 			       __func__);
 		}
-		printk("%s %d  effect->pattern_length=%d  effect->pattern=%d \n",
+		printk("%s %d  effect->pattern_length=%d  effect->pattern=%lu \n",
 		       __func__, __LINE__, effect->pattern_length,
 		       (uintptr_t)effect->pattern);
 

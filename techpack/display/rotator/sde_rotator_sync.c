@@ -133,8 +133,10 @@ static bool sde_rot_fence_signaled(struct dma_fence *fence)
 	bool status;
 
 	status = ((s32) (tl->curr_value - fence->seqno)) >= 0;
-	SDEROT_DBG("status:%d fence seq:%d and timeline:%d\n",
-			status, fence->seqno, tl->curr_value);
+	SDEROT_DBG("status:%d fence seq:%llu and timeline:%llu\n",
+			status,
+			(unsigned long long)fence->seqno,
+			(unsigned long long)tl->curr_value);
 	return status;
 }
 
@@ -154,7 +156,7 @@ static void sde_rot_fence_release(struct dma_fence *fence)
 static void sde_rot_fence_value_str(struct dma_fence *fence, char *str,
 		int size)
 {
-	snprintf(str, size, "%u", fence->seqno);
+	snprintf(str, size, "%llu", (unsigned long long)fence->seqno);
 }
 
 static void sde_rot_fence_timeline_value_str(struct dma_fence *fence,

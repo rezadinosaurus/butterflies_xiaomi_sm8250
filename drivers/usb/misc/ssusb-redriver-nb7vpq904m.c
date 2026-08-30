@@ -312,7 +312,7 @@ static void ssusb_redriver_gen_dev_set(
 		if (ret < 0) {
 			dev_err(redriver->dev,
 			"failure to %s set AUX, aux_val = 0x%x\n",
-			on ? "ENABLE":"DISABLE", val, aux_val);
+			on ? "ENABLE":"DISABLE", aux_val);
 			return;
 		}
 

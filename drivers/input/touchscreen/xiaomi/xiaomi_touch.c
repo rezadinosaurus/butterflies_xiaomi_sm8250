@@ -237,10 +237,10 @@ static ssize_t palm_sensor_store(struct device *dev,
 				 struct device_attribute *attr, const char *buf,
 				 size_t count)
 {
-	unsigned int input;
+	u8 input = 0;
 	struct xiaomi_touch_pdata *pdata = dev_get_drvdata(dev);
 
-	if (sscanf(buf, "%d", &input) < 0)
+	if (sscanf(buf, "%hhd", &input) < 0)
 		return -EINVAL;
 
 	if (pdata->touch_data->palm_sensor_write)
@@ -356,10 +356,10 @@ static ssize_t p_sensor_show(struct device *dev, struct device_attribute *attr,
 static ssize_t p_sensor_store(struct device *dev, struct device_attribute *attr,
 			      const char *buf, size_t count)
 {
-	unsigned int input;
+	u8 input = 0;
 	struct xiaomi_touch_pdata *pdata = dev_get_drvdata(dev);
 
-	if (sscanf(buf, "%d", &input) < 0)
+	if (sscanf(buf, "%hhd", &input) < 0)
 		return -EINVAL;
 
 	if (pdata->touch_data->p_sensor_write)
@@ -517,7 +517,7 @@ static ssize_t xiaomi_touch_log_debug_store(struct device *dev,
 {
 	u8 input = 0;
 	struct xiaomi_touch_pdata *pdata = dev_get_drvdata(dev);
-	if (sscanf(buf, "%d", &input) < 0)
+	if (sscanf(buf, "%hhd", &input) < 0)
 		return -EINVAL;
 	if (!pdata) {
 		MI_TOUCH_LOGE(1, "%s %s: xiaomi touch pdata is null\n", MI_TAG,

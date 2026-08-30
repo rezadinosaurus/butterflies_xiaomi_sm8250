@@ -273,7 +273,7 @@ static unsigned char HID_TouchReportDescriptor[] = {
 // ReportId(0x23) + 31byte (Usb->Pc)
 // ReportId(0x4e) + 31byte (Pc->USB)
 // ReportId(0x4f) + 63byte (Pc->USB)
-static uint8_t HID_VendorReportDescriptor[] = {
+static uint8_t __attribute__((unused)) HID_VendorReportDescriptor[] = {
 	// 76 Byte
 	0x06, 0x01, 0xFF, // USAGE_PAGE (Talon Specific) (42 byte)
 	0x09, 0x04, // USAGE (diagnostic)

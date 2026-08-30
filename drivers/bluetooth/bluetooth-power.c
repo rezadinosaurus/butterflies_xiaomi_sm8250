@@ -298,7 +298,7 @@ static int bt_enable_bt_reset_gpios_safely(void)
 		BT_PWR_INFO("%s: BTON:Turn Bt On", __func__);
 		BT_PWR_INFO("%s: wl-reset-gpio(%d) value(%d)",
 			__func__, wl_reset_gpio,
-				gpio_get_value(wl_reset_gpio));
+				(int)gpio_get_value(wl_reset_gpio));
 	}
 
 	if ((wl_reset_gpio < 0) ||
@@ -1090,7 +1090,7 @@ static void  set_pwr_srcs_status(int ldo_index,
 			bt_power_src_status[ldo_index] =
 				(int)regulator_get_voltage(handle->reg);
 			BT_PWR_ERR("%s(%d) value(%d)", handle->name,
-				handle, bt_power_src_status[ldo_index]);
+				ldo_index, bt_power_src_status[ldo_index]);
 		} else {
 			BT_PWR_ERR("%s: %s is_enabled %d", __func__,
 				handle->name, handle->is_enabled);

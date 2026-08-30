@@ -5375,7 +5375,7 @@ static int cam_isp_packet_generic_blob_handler(void *user_data,
 
 		if (blob_size < sizeof(struct cam_isp_csid_qcfa_config)) {
 			CAM_ERR(CAM_ISP,
-				"Invalid qcfa blob size %u expected %u",
+				"Invalid qcfa blob size %u expected %zu",
 				blob_size,
 				sizeof(struct cam_isp_csid_qcfa_config));
 			return -EINVAL;
@@ -5428,7 +5428,7 @@ static int cam_isp_packet_generic_blob_handler(void *user_data,
 		struct cam_isp_vfe_out_config *vfe_out_config;
 
 		if (blob_size < sizeof(struct cam_isp_vfe_out_config)) {
-			CAM_ERR(CAM_ISP, "Invalid blob size %u",
+			CAM_ERR(CAM_ISP, "Invalid blob size %u, size needed %zu",
 				blob_size,
 				sizeof(struct cam_isp_vfe_out_config));
 			return -EINVAL;
@@ -5439,7 +5439,7 @@ static int cam_isp_packet_generic_blob_handler(void *user_data,
 		if (vfe_out_config->num_ports > CAM_IFE_HW_OUT_RES_MAX ||
 			vfe_out_config->num_ports == 0) {
 			CAM_ERR(CAM_ISP,
-				"Invalid num_ports:%u in vfe out config",
+				"Invalid num_ports:%u in vfe out config, max:%u",
 				vfe_out_config->num_ports,
 				CAM_IFE_HW_OUT_RES_MAX);
 			return -EINVAL;

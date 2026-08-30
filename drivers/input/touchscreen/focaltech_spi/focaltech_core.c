@@ -2408,7 +2408,7 @@ static int fts_reset_mode(int mode)
 	} else if (mode < Touch_Mode_NUM) {
 		fts_restore_mode_value(mode, GET_DEF_VALUE);
 	} else {
-		FTS_ERROR("mode:%d don't support");
+		FTS_ERROR("mode:%d don't support", mode);
 	}
 
 	FTS_INFO("mode:%d reset", mode);
@@ -2427,7 +2427,7 @@ static int fts_get_mode_value(int mode, int value_type)
 		FTS_INFO("mode:%d, value_type:%d, value:%d", mode, value_type,
 			 value);
 	} else {
-		FTS_ERROR("mode:%d don't support");
+		FTS_ERROR("mode:%d don't support", mode);
 	}
 
 	return value;

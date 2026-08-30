@@ -4085,7 +4085,7 @@ static int cam_icp_mgr_process_cmd_desc(struct cam_icp_hw_mgr *hw_mgr,
 				((len - cmd_desc[i].offset) <
 				cmd_desc[i].size)){
 				CAM_ERR(CAM_ICP,
-					"Invalid offset, i: %d offset: %u len: %zu size: %zu",
+					"Invalid offset, i: %d offset: %u len: %zu size: %u",
 					i, cmd_desc[i].offset,
 					len, cmd_desc[i].size);
 				return -EINVAL;

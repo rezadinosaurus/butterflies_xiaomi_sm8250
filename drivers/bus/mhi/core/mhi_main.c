@@ -1732,8 +1732,9 @@ irqreturn_t mhi_intvec_handlr(int irq_number, void *dev)
 	/* wake up any events waiting for state change */
 	MHI_VERB("Enter\n");
 	if (unlikely(mhi_cntrl->initiate_mhi_reset)) {
-		mhi_read_reg_field(mhi_cntrl, mhi_cntrl->regs, MHICTRL,
-			MHICTRL_RESET_MASK, MHICTRL_RESET_SHIFT, &in_reset);
+		if (mhi_read_reg_field(mhi_cntrl, mhi_cntrl->regs, MHICTRL,
+			MHICTRL_RESET_MASK, MHICTRL_RESET_SHIFT, &in_reset))
+			MHI_ERR("Failed to read MHICTRL reset field\n");
 		mhi_cntrl->initiate_mhi_reset = !!in_reset;
 	}
 	wake_up_all(&mhi_cntrl->state_event);

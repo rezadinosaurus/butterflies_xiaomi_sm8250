@@ -21,7 +21,7 @@ void frame_stat_notify(int data)
 		display = container_of(host, struct dsi_display, host);
 
 	if (!display) {
-		pr_err("%s: invalid param.\n");
+		pr_err("%s: invalid param.\n", __func__);
 		return;
 	}
 
@@ -77,7 +77,7 @@ void calc_fps(u64 duration, int input_event)
 		fm_stat.last_frame_commit_time_us = current_time_us;
 		if (diff > LONG_FRAME_INTERVAL) {
 			fm_stat.skip_count++;
-			pr_debug("%s: Long frame interval, frame interval[%lld ms], count[%d]\n",
+			pr_debug("%s: Long frame interval, frame interval[%lld ms], count[%lld]\n",
 				 __func__, diff/NANO_TO_MICRO, fm_stat.skip_count);
 			if (fm_stat.skip_count > LONG_INTERVAL_FRAME_COUNT) {
 				/* Sometime  app refresh in low fps, here set 50hz */
